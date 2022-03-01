@@ -14,7 +14,7 @@ export default function Category({ categories, category, setCategory }: ICategor
       {categories.map((categotyItem) => (
         <Link
           key={`badge-${categotyItem}`}
-          to={`/?category=${categotyItem}`}
+          to={`/blog?category=${categotyItem}`}
           className={`category--item ${categotyItem === category ? 'active' : ''}`}
           onClick={() => setCategory(categotyItem)}
         >

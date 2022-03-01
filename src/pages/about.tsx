@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/pages/about.scss';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
-import Contacts from '../components/common/Contacts';
-import profile from '../images/about/profile.svg';
+import profile from '../images/excelsior-logo.jpeg';
 import { COLOR } from '../constants/togglerType';
 
 const About = ({ location }) => {
@@ -36,7 +35,6 @@ const About = ({ location }) => {
         <h2 className={theme('about-name')}>{author.name}</h2>
         <p className={theme('self-introduction')} dangerouslySetInnerHTML={{ __html: instruction }} />
         <img className="profile-image" src={profile} alt="profile" />
-        <Contacts />
       </div>
     </Layout>
   );

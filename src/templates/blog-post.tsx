@@ -9,7 +9,6 @@ import nextIcon from '../images/post-next-icon.svg';
 import '../styles/blog-post.scss';
 import '../styles/code.scss';
 import PostFooterCard from '../components/common/PostFooterCard';
-import Comment from '../components/comment';
 
 export interface CommentProps {
   service: 'disqus' | 'utterances';
@@ -25,20 +24,11 @@ const BlogPostTemplate = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes;
   const slug = data.markdownRemark.fields?.slug;
   const { category } = data.markdownRemark.frontmatter;
-  const { commentInfo } = data.site.siteMetadata;
 
   const { previous, next } = data;
 
   const filteredPost = posts.filter((item) => category === item.frontmatter.category);
 
-  const commentProps: CommentProps = {
-    service: commentInfo.service,
-    disqusProps: {
-      shortname: commentInfo.disqusId,
-      config: { identifier: slug, title: post.frontmatter.title },
-    },
-    utterancesProps: commentInfo.utterancesId,
-  };
 
   const getThumbnail = (postIndex) => {
     const regex = /<img[^>]+src\s*=\s*['"]([^'"]+)['"][^>]*>/g;
@@ -63,7 +53,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <p className="post-category">
             <Link to={`/`}>HOME</Link>
             <img src={arrowIcon} alt="HOME" />
-            <Link to={`/?category=${category}`}>{category}</Link>
+            <Link to={`/blog?category=${category}`}>{category}</Link>
           </p>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
@@ -90,7 +80,7 @@ const BlogPostTemplate = ({ data, location }) => {
         <p className="post-category">
           <Link to={`/`}>HOME</Link>
           <img src={arrowIcon} alt="HOME" />
-          <Link to={`/?category=${category}`}>{category}</Link>
+          <Link to={`/blog?category=${category}`}>{category}</Link>
         </p>
         <div className="post-card-container">
           {filteredPost.map((item, postIndex) => (
@@ -98,11 +88,6 @@ const BlogPostTemplate = ({ data, location }) => {
           ))}
         </div>
       </nav>
-      <Comment
-        service={commentProps.service}
-        disqusProps={commentProps.disqusProps}
-        utterancesProps={commentProps.utterancesProps}
-      />
     </Layout>
   );
 };
@@ -114,11 +99,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        commentInfo {
-          service
-          disqusId
-          utterancesId
-        }
       }
     }
     markdownRemark(id: { eq: $id }) {

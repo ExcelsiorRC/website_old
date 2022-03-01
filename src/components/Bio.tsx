@@ -36,7 +36,7 @@ const Bio = () => {
         className="bio-avatar"
         layout="fixed"
         formats={['png', 'png', 'png']}
-        src="../images/profile-pic.png"
+        src="../images/excelsior-logo.jpeg"
         width={50}
         height={50}
         quality={95}
