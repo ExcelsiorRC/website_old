@@ -29,7 +29,6 @@ const BlogPostTemplate = ({ data, location }) => {
 
   const filteredPost = posts.filter((item) => category === item.frontmatter.category);
 
-
   const getThumbnail = (postIndex) => {
     const regex = /<img[^>]+src\s*=\s*['"]([^'"]+)['"][^>]*>/g;
     const htmlString = filteredPost.map((htmlCode, htmlIndex) => {

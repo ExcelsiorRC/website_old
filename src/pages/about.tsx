@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/pages/about.scss';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
-import profile from '../images/excelsior-logo.jpeg';
+import profile from '../images/excelsior-logo.webp';
 import { COLOR } from '../constants/togglerType';
 
 const About = ({ location }) => {
