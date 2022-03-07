@@ -1,5 +1,6 @@
 {
   "main.js": "render-page.js",
   "render-page.js.map": "render-page.js.map",
-  "static/excelsior-logo.jpeg": "static/excelsior-logo-4543ccc5d3ef669297fdf9345f1ce5ac.jpeg"
+  "static/excelsior-logo.jpeg": "static/excelsior-logo-4543ccc5d3ef669297fdf9345f1ce5ac.jpeg",
+  "static/excelsior-logo.webp": "static/excelsior-logo-fe83b1e708f461fee28c4f6eb433bc1a.webp"
 }
