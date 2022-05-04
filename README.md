@@ -1,4 +1,4 @@
-# Excelsior Runnign Club Website
+# Excelsior Running Club Website
 [excelsiorrunning.club](https://excelsiorrunning.club)
 
 ## infra
